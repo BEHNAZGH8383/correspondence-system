@@ -1,0 +1,28 @@
+classDiagram
+    class User {
+        int id
+        str username
+        str full_name
+        str password_hash
+        datetime created_at
+    }
+    class Letter {
+        int id
+        str subject
+        text body
+        int sender_id
+        int receiver_id
+        bool is_read
+        datetime created_at
+    }
+    class Attachment {
+        int id
+        int letter_id
+        str original_name
+        str saved_name
+        str content_type
+        int size_bytes
+    }
+    User "1" --> "0..*" Letter : sends
+    User "1" --> "0..*" Letter : receives
+    Letter "1" --> "0..1" Attachment : has

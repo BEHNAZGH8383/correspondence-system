@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#f5f1e8">
+    <title>رسانا | سامانه مکاتبات</title>
+    <link rel="stylesheet" href="styles.css?v=20260912-3">
+</head>
+<body>
+<div class="grain"></div>
+<main class="site">
+    <section id="loginView" class="auth-page">
+        <div class="auth-visual">
+            <div class="visual-top"><span class="brand-dot"></span><span>CORRESPONDENCE / 05</span></div>
+            <div class="visual-copy">
+                <span class="eyebrow">PERSONAL CORRESPONDENCE</span>
+                <h1>پیام‌ها را<br><em>ساده‌تر</em> دنبال کن.</h1>
+                <p>یک میز کار دیجیتال برای مکاتبات؛ بدون شلوغی، بدون پنجره‌های اضافی.</p>
+            </div>
+            <div class="paper-stack">
+                <div class="paper paper-back"><span>ARCHIVE</span></div>
+                <div class="paper paper-mid"><span>MESSAGE</span><b>۰۵</b></div>
+                <div class="paper paper-front"><div class="paper-line long"></div><div class="paper-line"></div><div class="paper-line short"></div><div class="paper-stamp">R</div></div>
+            </div>
+            <div class="visual-footer"><span>سامانه مکاتبات شخصی</span><span>۱۴۰۵</span></div>
+        </div>
+
+        <section class="auth-box">
+            <div class="auth-brand"><div class="logo-square">ر</div><div><b>رسانا</b><small>میز مکاتبات</small></div></div>
+            <div class="auth-heading">
+                <span class="section-index">01 / ورود</span>
+                <h2>خوش آمدید.</h2>
+                <p id="authHint">برای ادامه وارد حساب کاربری خود شوید.</p>
+            </div>
+
+            <form id="loginForm" class="auth-form">
+                <label for="username">نام کاربری</label>
+                <input id="username" name="username" autocomplete="username" placeholder="مثلاً ali" required minlength="3">
+                <label for="password">رمز عبور</label>
+                <input id="password" name="password" type="password" autocomplete="current-password" placeholder="••••••••" required>
+                <button type="submit" class="primary-btn">ورود به میز کار <span>↗</span></button>
+            </form>
+
+            <form id="registerForm" class="auth-form hidden">
+                <label for="registerFullName">نام و نام خانوادگی</label>
+                <input id="registerFullName" name="full_name" autocomplete="name" placeholder="نام کامل" required minlength="2" maxlength="100">
+                <label for="registerUsername">نام کاربری</label>
+                <input id="registerUsername" name="username" autocomplete="username" placeholder="username" required minlength="3" maxlength="50" pattern="[A-Za-z0-9_]+">
+                <label for="registerPassword">رمز عبور</label>
+                <input id="registerPassword" name="password" type="password" autocomplete="new-password" placeholder="حداقل ۶ کاراکتر" required minlength="6" maxlength="100">
+                <label for="registerPasswordConfirm">تکرار رمز عبور</label>
+                <input id="registerPasswordConfirm" name="password_confirm" type="password" autocomplete="new-password" placeholder="تکرار رمز عبور" required minlength="6" maxlength="100">
+                <button type="submit" class="primary-btn">ساخت حساب <span>↗</span></button>
+            </form>
+
+            <div class="auth-switch"><span>حساب ندارید؟</span><button id="authSwitchButton" type="button">ثبت نام کاربر جدید</button></div>
+            <div id="demoUsers" class="demo-users"><span>حساب آزمایشی</span><b>ali / 123456</b><b>sara / 123456</b><b>reza / 123456</b></div>
+            <p id="loginMessage" class="message"></p>
+        </section>
+    </section>
+
+    <section id="appView" class="dashboard hidden">
+        <header class="app-header">
+            <div class="app-brand"><div class="logo-square">ر</div><div><b>رسانا</b><small>WORKSPACE</small></div></div>
+            <nav class="tabs">
+                <button class="tab active" data-view="inbox" type="button"><span>دریافتی</span><em>01</em></button>
+                <button class="tab" data-view="sent" type="button"><span>ارسالی</span><em>02</em></button>
+                <button class="tab" data-view="compose" type="button"><span>نامه جدید</span><em>03</em></button>
+            </nav>
+            <div class="account-area"><div><small>کاربر فعلی</small><strong id="currentUserName"></strong></div><button id="logoutButton" type="button">خروج</button></div>
+        </header>
+
+        <main class="workspace">
+            <section class="welcome-strip">
+                <div><span class="eyebrow">YOUR DESK / TODAY</span><h1>میز کار شما، <strong id="dashboardGreeting">مرتب</strong> و آماده است.</h1></div>
+                <div class="status-pill"><i></i> اتصال به سرور برقرار است</div>
+            </section>
+
+            <section class="stats-row">
+                <div class="stat-card"><span>01</span><small>کارتابل دریافتی</small><b>INBOX</b></div>
+                <div class="stat-card"><span>02</span><small>نامه‌های ارسال‌شده</small><b>SENT</b></div>
+                <div class="stat-card accent-stat"><span>03</span><small>فضای مکاتبات</small><b>CORRESPONDENCE</b></div>
+            </section>
+
+            <section id="inboxPanel" class="work-panel">
+                <div class="panel-head"><div><span class="eyebrow">INBOX / 01</span><h2>کارتابل دریافتی</h2><p>پیام‌های جدید و مکاتبات اخیر در یک نگاه.</p></div><button class="refresh" data-refresh="inbox" type="button">↻ بروزرسانی</button></div>
+                <div class="list-label"><span>موضوع و فرستنده</span><span>وضعیت</span><span>تاریخ</span></div>
+                <div id="inboxList" class="letter-list"></div>
+            </section>
+
+            <section id="sentPanel" class="work-panel hidden">
+                <div class="panel-head"><div><span class="eyebrow">SENT / 02</span><h2>کارتابل ارسالی</h2><p>تاریخچه مکاتباتی که از این میز ارسال شده است.</p></div><button class="refresh" data-refresh="sent" type="button">↻ بروزرسانی</button></div>
+                <div class="list-label"><span>موضوع و گیرنده</span><span>وضعیت</span><span>تاریخ</span></div>
+                <div id="sentList" class="letter-list"></div>
+            </section>
+
+            <section id="composePanel" class="work-panel compose-panel hidden">
+                <div class="compose-title"><span class="eyebrow">NEW LETTER / 03</span><h2>یک نامه تازه بنویسید.</h2><p>پیام شما پس از ارسال مستقیماً در کارتابل گیرنده قرار می‌گیرد.</p></div>
+                <form id="letterForm" class="compose-form">
+                    <div class="field-block"><label for="receiverId">گیرنده</label><select id="receiverId" name="receiver_id" required></select></div>
+                    <div class="field-block"><label for="subject">موضوع</label><input id="subject" name="subject" placeholder="موضوع نامه" required minlength="3" maxlength="200"></div>
+                    <div class="field-block full"><label for="body">متن نامه</label><textarea id="body" name="body" rows="10" placeholder="متن نامه را اینجا بنویسید..." required maxlength="5000"></textarea></div>
+                    <div class="compose-footer">
+                        <label class="attachment" for="attachment"><span>＋</span><div><b>افزودن پیوست</b><small>PDF · JPG · PNG · DOCX · ZIP · TXT</small></div></label>
+                        <input id="attachment" name="attachment" type="file" accept=".pdf,.png,.jpg,.jpeg,.txt,.doc,.docx,.zip">
+                        <button type="submit" class="primary-btn">ارسال نامه <span>↗</span></button>
+                    </div>
+                </form>
+                <p id="composeMessage" class="message"></p>
+            </section>
+        </main>
+    </section>
+</main>
+
+<dialog id="letterDialog"><div class="dialog-box"><button id="closeDialogButton" class="dialog-close" type="button">×</button><span class="eyebrow" id="dialogDirection"></span><h2 id="dialogSubject"></h2><p id="dialogMeta" class="dialog-meta"></p><div class="dialog-rule"></div><p id="dialogBody" class="letter-body"></p><button id="downloadButton" class="download hidden" type="button"></button></div></dialog>
+<script src="app.js?v=20260912-3"></script>
+</body>
+</html>

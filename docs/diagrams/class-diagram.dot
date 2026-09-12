@@ -1,0 +1,13 @@
+digraph ClassDiagram {
+  graph [rankdir=LR, bgcolor="white", pad=0.3, nodesep=0.8, ranksep=1.0];
+  node [shape=record, fontname="DejaVu Sans", fontsize=11, style="rounded,filled", fillcolor="#F5F8FC", color="#536D8C"];
+  edge [fontname="DejaVu Sans", fontsize=10, color="#536D8C"];
+
+  User [label="{User|id: int\lusername: str\lfull_name: str\lpassword_hash: str\lcreated_at: datetime\l}"];
+  Letter [label="{Letter|id: int\lsubject: str\lbody: text\lsender_id: int\lreceiver_id: int\lis_read: bool\lcreated_at: datetime\l}"];
+  Attachment [label="{Attachment|id: int\lletter_id: int\loriginal_name: str\lsaved_name: str\lcontent_type: str\lsize_bytes: int\l}"];
+
+  User -> Letter [label="sender 1 to many", arrowhead="vee"];
+  User -> Letter [label="receiver 1 to many", arrowhead="vee"];
+  Letter -> Attachment [label="one to zero or one", arrowhead="vee"];
+}

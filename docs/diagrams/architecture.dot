@@ -1,0 +1,16 @@
+digraph Architecture {
+  graph [rankdir=LR, bgcolor="white", pad=0.3, nodesep=0.7];
+  node [shape=box, style="rounded,filled", fontname="DejaVu Sans", fontsize=11, fillcolor="#F5F8FC", color="#536D8C", margin="0.18,0.12"];
+  edge [fontname="DejaVu Sans", fontsize=10, color="#536D8C"];
+
+  Browser [label="مرورگر\nHTML + CSS + JavaScript"];
+  Nginx [label="Frontend\nNginx"];
+  FastAPI [label="Backend\nFastAPI + SQLAlchemy"];
+  PostgreSQL [label="Database\nPostgreSQL"];
+  Uploads [label="Attachment Volume"];
+
+  Browser -> Nginx [label="HTTP :8080"];
+  Nginx -> FastAPI [label="/api"];
+  FastAPI -> PostgreSQL [label="SQL"];
+  FastAPI -> Uploads [label="file"];
+}
